@@ -1,16 +1,18 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const missingPeopleSchema = new Schema({
+const missingPeopleSchema = new mongoose.Schema({
 	firstName : String,
-	lastName : {type: Number, required: true},
-	dateMissing : {type: Number, required: true},
-	location : {type: Number, required: true},
+	lastName : {type: String, required: true},
+	dateMissing : {type: Date, required: true},
+	location : {type: String, required: true},
 	posessions : [String],
 	gender: String,
 	famousFor: {type: String, required:true},
 	disappearanceContext: {type: String, required: true},
+	ageAtDisappearance: Number,
 
 });
 
-module.exports = missingPeople= mongoose.model("missingPeople", missingPeopleSchema);
+
+
+module.exports = mongoose.model("missingPeople", missingPeopleSchema);
