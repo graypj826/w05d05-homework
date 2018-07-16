@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+        <h1>Identify Additional Missing Famous People</h1>
+        <form>
+	        <input type="text" value="<%=missingpeople">
+	        <input type="text" value="When Did They Disappear?">
+	        <input type="text" value="Location">
+	        <input type="text" value="posessions if any">
+	        <input type="text" value="gender">
+	        <input type="text" value="Why were they famous?">
+	        <input type="text" value="What's the Context of Their Disappearance?">
+	        <input type="text" value="How Old Were They?">
+Name : {type: String, required: true},
+	dateMissing : {type: Date, required: true},
+	location : {type: String, required: true},
+	posessions : [String],
+	gender: String,
+	famousFor: {type: String, required:true},
+	disappearanceContext: {type: String, required: true},
+	ageAtDisappearance: Number,
+
+	    </form> 
+    </body>
+</html>

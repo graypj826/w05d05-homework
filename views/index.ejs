@@ -9,7 +9,9 @@
         <h1>Fruits index page</h1>
         <ul> 
           <% for(let i = 0; i < missingpeople.length; i++){%>
-            <li><a href="/missingpeople/<%=missingpeople[i].Name%>"> <%=missingpeople[i].Name%> </a></li> 
+            <li><a href="/missingpeople/<%=missingpeople[i].id%>"> <%=missingpeople[i].Name%> </a></li> 
             <%}%>
+            <br>
+            <a href="/missingpeople/new"> identify new famous people that have disappeared </a> 
     </body>
 </html>

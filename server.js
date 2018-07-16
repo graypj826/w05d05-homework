@@ -47,9 +47,51 @@ app.get("/missingpeople", (req,res) => {
 	})
 })
 
+app.get("/missingpeople/:id", (req,res) => {
+	MissingPeople.findById(req.params.id, (err, missingPerson) => {
+		console.log(missingPerson);
+		if(err){
+			res.sender(err);
+		} else{
+			res.render("show.ejs",{
+			missingPerson : missingPerson
+			})
+		}
+	})
+});
+app.get("/missingpeople/:id/edit", (req,res) => {
+	MissingPeople.findById(req.params.id, (err, missingPerson) => {
+			res.render("edit.ejs",{
+			missingPerson : missingPerson
+			})
+		});
+});
+
+app.get("/missingpeople/:id", (req,res) => {
+	MissingPeople.findById(req.params.id, (err, missingPerson) => {
+		console.log(missingPerson);
+		if(err){
+			res.sender(err);
+		} else{
+			res.render("show.ejs",{
+			missingPerson : missingPerson
+			})
+		}
+	})
+});
 
 
-
+app.put("/missingpeople/:id", (req,res) => {
+	console.log(req.body, "changes to be made!")
+	MissingPeople.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,updatedPerson) => {
+		if(err){
+			res.send(err);
+		} else {
+			console.log(updatedPerson)
+			res.redirect("/missingpeople")
+		}
+	})
+});
 
 app.listen(3000, () => {
 	console.log("We're on the trail")
