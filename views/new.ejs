@@ -6,25 +6,17 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1>Identify Additional Missing Famous People</h1>
-        <form>
-	        <input type="text" value="<%=missingpeople">
-	        <input type="text" value="When Did They Disappear?">
-	        <input type="text" value="Location">
-	        <input type="text" value="posessions if any">
-	        <input type="text" value="gender">
-	        <input type="text" value="Why were they famous?">
-	        <input type="text" value="What's the Context of Their Disappearance?">
-	        <input type="text" value="How Old Were They?">
-Name : {type: String, required: true},
-	dateMissing : {type: Date, required: true},
-	location : {type: String, required: true},
-	posessions : [String],
-	gender: String,
-	famousFor: {type: String, required:true},
-	disappearanceContext: {type: String, required: true},
-	ageAtDisappearance: Number,
-
+        <h1>Would you like to add someone to the missing listh?</h1>
+        <form method = "POST" action = "/missingpeople/">
+	        <input type="text" placeholder="Name" name="Name">
+	        <input type="text" placeholder="When Did They Go Missing?" name="dateMissing">
+	        <input type="text" placeholder="Where Did They Go Missing" name="location">
+	        <input type="text" placeholder="What Did They Have With Them?" name="posessions">
+	        <input type="text" placeholder="What Was Tehir Gender?" name="gender">
+	        <input type="text" placeholder="Why Were They Famous?" name="famousFor">
+	        <input type="text" placeholder="Circumstances Of Their Disappearance?" name = "disappearanceContext">
+	        <input type="text" placeholder="How Old Were Tehy When They Went Missing?" name="ageAtDisappearance">
+	        <input type="submit" name="Submit">
 	    </form> 
     </body>
 </html>

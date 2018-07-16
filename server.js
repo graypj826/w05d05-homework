@@ -44,19 +44,12 @@ app.get("/missingpeople", (req,res) => {
 			})
 		}
 	})
-})
-
-app.get("/missingpeople/:id", (req,res) => {
-	MissingPeople.findById(req.params.id, (err, missingPerson) => {
-		if(err){
-			res.sender(err);
-		} else{
-			res.render("show.ejs",{
-			missingPerson : missingPerson
-			})
-		}
-	})
 });
+
+app.get("/missingpeople/new", (req,res) => {
+	res.render("new.ejs", {})
+});
+
 app.get("/missingpeople/:id/edit", (req,res) => {
 	MissingPeople.findById(req.params.id, (err, missingPerson) => {
 			res.render("edit.ejs",{
@@ -76,8 +69,16 @@ app.get("/missingpeople/:id", (req,res) => {
 		}
 	})
 });
-
-
+app.post("/missingpeople/", (req,res) => {
+	MissingPeople.create(req.body, (err,newPerson) => {
+		if(err){
+			res.send(err);
+		} else {
+			console.log(newPerson)
+			res.redirect(`/missingpeople/${newPerson.id}`)
+		}
+	})
+});
 app.put("/missingpeople/:id", (req,res) => {
 	console.log(req.body, "changes to be made!")
 	MissingPeople.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,updatedPerson) => {
