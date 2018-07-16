@@ -18,8 +18,12 @@ app.use(express.static(__dirname + '/public'));
 
 // app.use('/missingPeople', missingPeopleController);
 
+
+
 const MissingPeople = require("./models/missingPeople.js");
 
+// /////////////////////Added TO DATABASE ///////////////
+///////////////////////  DO NOT UNCOMMENT //////////////
 // const missingPeopleList = require("./populateMissingPeople.js")
 
 // MissingPeople.collection.insertMany(
@@ -28,12 +32,17 @@ const MissingPeople = require("./models/missingPeople.js");
 // 		mongoose.connection.close();
 // 	}
 // );
-
+//////////////////////////////////////////////////////////
 
 app.get("/missingpeople", (req,res) => {
 	MissingPeople.find({}, (err, allPeople) => {
-		if (err){
-			res.send (err);
+		console.log(allPeople);
+		if(err){
+			res.sender(err);
+		} else{
+			res.render("index.ejs",{
+			missingpeople : allPeople
+			})
 		}
 	})
 })

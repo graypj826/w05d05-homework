@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1> Test </h1>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+        <h1>Fruits index page</h1>
+        <ul> 
+          <% for(let i = 0; i < missingpeople.length; i++){%>
+            <li><a href="/missingpeople/<%=missingpeople[i].Name%>"> <%=missingpeople[i].Name%> </a></li> 
+            <%}%>
+    </body>
 </html>
