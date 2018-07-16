@@ -90,6 +90,15 @@ app.put("/missingpeople/:id", (req,res) => {
 		}
 	})
 });
+app.delete("/missingpeople/:id", (req,res) => {
+	MissingPeople.findByIdAndRemove(req.params.id, (err,removePerson) => {
+		if(err){
+			res.send(err);
+		} else {
+			res.redirect("/missingpeople")
+		}
+	})
+});
 
 app.listen(3000, () => {
 	console.log("We're on the trail")

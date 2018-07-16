@@ -18,5 +18,8 @@
 	        <input type="text" placeholder="<%=missingPerson.ageAtDisappearance%>" name="ageAtDisappearance">
 	        <input type="submit" name="Submit Changes">
 	    </form> 
+	    <form method="POST" action="/missingpeople/<%=missingPerson.id%>?_method=DELETE">
+	    	<input type="submit" value="Delete Person" name="delete">
+		</form>
     </body>
 </html>
