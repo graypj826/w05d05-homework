@@ -36,7 +36,6 @@ const MissingPeople = require("./models/missingPeople.js");
 
 app.get("/missingpeople", (req,res) => {
 	MissingPeople.find({}, (err, allPeople) => {
-		console.log(allPeople);
 		if(err){
 			res.sender(err);
 		} else{
@@ -49,7 +48,6 @@ app.get("/missingpeople", (req,res) => {
 
 app.get("/missingpeople/:id", (req,res) => {
 	MissingPeople.findById(req.params.id, (err, missingPerson) => {
-		console.log(missingPerson);
 		if(err){
 			res.sender(err);
 		} else{
@@ -69,7 +67,6 @@ app.get("/missingpeople/:id/edit", (req,res) => {
 
 app.get("/missingpeople/:id", (req,res) => {
 	MissingPeople.findById(req.params.id, (err, missingPerson) => {
-		console.log(missingPerson);
 		if(err){
 			res.sender(err);
 		} else{

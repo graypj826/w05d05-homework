@@ -8,14 +8,14 @@
     <body>
         <h1>What Would You Like To Change?</h1>
         <form method = "post" action = "/missingpeople/<%=missingPerson.id%>?_method=PUT">
-	        <input type="text" value="<%=missingPerson.Name%>">
-	        <input type="text" value="%=missingPerson.dateMissing%>">
-	        <input type="text" value="%=missingPerson.location%>">
-	        <input type="text" value="%=missingPerson.posessions%>">
-	        <input type="text" value="%=missingPerson.gender%>">
-	        <input type="text" value="%=missingPerson.famousFor%>">
-	        <input type="text" value="%=missingPerson.disappearanceContext%>">
-	        <input type="text" value="%=missingPerson.ageAtDisappearance%>">
+	        <input type="text" placeholder="<%=missingPerson.Name%>" name="Name">
+	        <input type="text" placeholder="<%=missingPerson.dateMissing%>" name="dateMissing">
+	        <input type="text" placeholder="<%=missingPerson.location%>" name="location">
+	        <input type="text" placeholder="<%=missingPerson.posessions%>" name="posessions">
+	        <input type="text" placeholder="<%=missingPerson.gender%>" name="gender">
+	        <input type="text" placeholder="<%=missingPerson.famousFor%>" name="famousFor">
+	        <input type="text" placeholder="<%=missingPerson.disappearanceContext%>" name = "disappearanceContext">
+	        <input type="text" placeholder="<%=missingPerson.ageAtDisappearance%>" name="ageAtDisappearance">
 	        <input type="submit" name="Submit Changes">
 	    </form> 
     </body>
