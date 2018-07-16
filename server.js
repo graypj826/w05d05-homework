@@ -11,13 +11,12 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(methodOverride("_method"));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static("public"));
 
 
-// const missingPeopleController = require("./controllers/missingPeopleController")
+const missingPeopleController = require("./controllers/missingPeopleController")
 
-// app.use('/missingPeople', missingPeopleController);
-
+app.use('/missingPeople', missingPeopleController);
 
 
 const MissingPeople = require("./models/missingPeople.js");
@@ -34,71 +33,7 @@ const MissingPeople = require("./models/missingPeople.js");
 // );
 //////////////////////////////////////////////////////////
 
-app.get("/missingpeople", (req,res) => {
-	MissingPeople.find({}, (err, allPeople) => {
-		if(err){
-			res.sender(err);
-		} else{
-			res.render("index.ejs",{
-			missingpeople : allPeople
-			})
-		}
-	})
-});
 
-app.get("/missingpeople/new", (req,res) => {
-	res.render("new.ejs", {})
-});
-
-app.get("/missingpeople/:id/edit", (req,res) => {
-	MissingPeople.findById(req.params.id, (err, missingPerson) => {
-			res.render("edit.ejs",{
-			missingPerson : missingPerson
-			})
-		});
-});
-
-app.get("/missingpeople/:id", (req,res) => {
-	MissingPeople.findById(req.params.id, (err, missingPerson) => {
-		if(err){
-			res.sender(err);
-		} else{
-			res.render("show.ejs",{
-			missingPerson : missingPerson
-			})
-		}
-	})
-});
-app.post("/missingpeople/", (req,res) => {
-	MissingPeople.create(req.body, (err,newPerson) => {
-		if(err){
-			res.send(err);
-		} else {
-			console.log(newPerson)
-			res.redirect(`/missingpeople/${newPerson.id}`)
-		}
-	})
-});
-app.put("/missingpeople/:id", (req,res) => {
-	console.log(req.body, "changes to be made!")
-	MissingPeople.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,updatedPerson) => {
-		if(err){
-			res.send(err);
-		} else {
-			console.log(updatedPerson)
-			res.redirect("/missingpeople")
-		}
-	})
-});
-app.delete("/missingpeople/:id", (req,res) => {
-	MissingPeople.findByIdAndRemove(req.params.id, (err,removePerson) => {
-		if(err){
-			res.send(err);
-		} else {
-			res.redirect("/missingpeople")
-		}
-	})
-});
 
 app.listen(3000, () => {
 	console.log("We're on the trail")
